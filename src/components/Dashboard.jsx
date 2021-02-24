@@ -1,5 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { MobileNav, Content } from "./DashboardComponents";
+import styled from "styled-components";
 
 const Dashboard = () => {
   const { isAuthenticated, user } = useAuth0();
@@ -7,15 +9,17 @@ const Dashboard = () => {
   return (
     <>
       {isAuthenticated && (
-        <div>
-          <h1>this is the user's profile</h1>
-          <h1>{user.email}</h1>
-          <h1>{user.name}</h1>
-          <img src={user.picture} alt={user.name} />
-        </div>
+        <Wrapper>
+          <MobileNav />
+          <Content userImg={user.picture} userName={user.name} />
+        </Wrapper>
       )}
     </>
   );
 };
+
+const Wrapper = styled.div`
+  background: #eff1ff;
+`;
 
 export default Dashboard;

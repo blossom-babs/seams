@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { MedicalProvider } from "./context/context";
 
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -14,7 +15,9 @@ ReactDOM.render(
     clientId={clientId}
     redirectUri={window.location.origin}
   >
-    <App />
+    <MedicalProvider>
+      <App />
+    </MedicalProvider>
   </Auth0Provider>,
   document.getElementById("root")
 );

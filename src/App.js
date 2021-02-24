@@ -1,7 +1,5 @@
-import { Logout, Login, Dashboard } from "./components";
+import { Login, Dashboard, Footer } from "./components";
 import { useAuth0 } from "@auth0/auth0-react";
-// styles
-import "./App.css";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -12,8 +10,7 @@ function App() {
     <>
       <Login />
       <Dashboard />
-      <h2>something completely unrelated to occupy the screen</h2>
-      <Logout />
+      <Footer />
     </>
   );
 }
